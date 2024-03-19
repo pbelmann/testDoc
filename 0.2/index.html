@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Meta-Omics-Toolkit</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Meta-Omics-Toolkit</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="pipeline_configuration/" class="nav-link">Global Pipeline Configuration Settings</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="modules/qualityControl/" class="dropdown-item">Quality Control</a>
+</li>
+                                    
+<li>
+    <a href="modules/annotation/" class="dropdown-item">Annotation</a>
+</li>
+                                    
+<li>
+    <a href="modules/assembly/" class="dropdown-item">Assembly</a>
+</li>
+                                    
+<li>
+    <a href="modules/cooccurrence/" class="dropdown-item">Cooccurrence</a>
+</li>
+                                    
+<li>
+    <a href="modules/dereplication/" class="dropdown-item">Dereplication</a>
+</li>
+                                    
+<li>
+    <a href="modules/fragment_recruitment/" class="dropdown-item">Run Fragment Recruitment</a>
+</li>
+                                    
+<li>
+    <a href="modules/magAttributes/" class="dropdown-item">MagAttributes</a>
+</li>
+                                    
+<li>
+    <a href="modules/plasmids/" class="dropdown-item">Plasmids</a>
+</li>
+                                    
+<li>
+    <a href="modules/metabolomics/" class="dropdown-item">Metabolomics</a>
+</li>
+                                    
+<li>
+    <a href="modules/readMapping/" class="dropdown-item">Read Mapping</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="developer_guidelines/" class="dropdown-item">Guidelines</a>
+</li>
+                                    
+<li>
+    <a href="pipeline_specification/" class="dropdown-item">Pipeline Specification</a>
+</li>
+                                    
+<li>
+    <a href="module_specification/" class="dropdown-item">Module Specification</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="pipeline_configuration/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#metagenomics-toolkit" class="nav-link">Metagenomics-Toolkit</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#run-full-pipeline" class="nav-link">Run Full Pipeline</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="metagenomics-toolkit">Metagenomics-Toolkit</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The Metagenomics-Toolkit allows you to run either the full pipeline of assembly, binning and many other downstream analysis tasks or individual modules.
+The toolkit can be configured by providing the module configuration via a yml file and a flag for the corresponding module or full pipeline mode.<br />
+Options for global pipeline configuration can be viewed <a href="pipeline_configuration/">here</a>.</p>
+<p>All tools follow the same error strategy. The execution of a tool is retried three times. If the run fails the fourth time, it will be ignored.
+If the execution is ignored, the toolkit will continue to run all tools that do not depend on the output of the failed tool run.
+Exceptions of this handling are specified in the corresponding module section.</p>
+<p><em>Note!</em> Please do never place sensitive information in any of the yml configuration files since the configuration is part of the pipeline output.</p>
+<h2 id="run-full-pipeline">Run Full Pipeline</h2>
+<div class="highlight"><pre><span></span><code>nextflow<span class="w"> </span>run<span class="w"> </span>main.nf<span class="w"> </span>-work-dir<span class="w"> </span>/shared/directory/test<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-profile<span class="w"> </span>PROFILE<span class="w">  </span>-resume<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-entry<span class="w"> </span>wFullPipeline<span class="w"> </span>-params-file<span class="w"> </span>example_params/fullPipeline.yml
+</code></pre></div>
+<p>where
+ *  /shared/directory/test is a directory that is shared between multiple machines.
+ * PROFILE can be either <code>standard</code> (local use) or <code>slurm</code> depending on which environment the pipeline should be executed.</p>
+<h3 id="input">Input</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Command</label><label for="__tabbed_1_2">Configuration File</label><label for="__tabbed_1_3">TSV Table</label><label for="__tabbed_1_4">Additional S3 Configuration</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>-entry<span class="w"> </span>wFullPipeline<span class="w"> </span>-params-file<span class="w"> </span>example_params/fullPipeline.yml
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<p>Must include the columns <code>SAMPLE</code>, <code>READS1</code> and <code>READS2</code>. <code>SAMPLE</code> must contain unique dataset identifiers
+without whitespaces or special characters. <code>READS1</code> and <code>READS2</code> are paired reads and can be HTTPS URLs, S3 links or files.</p>
+</div>
+<div class="tabbed-block">
+<p>Nextflow usually stores downloaded files in the work directory. If enough scratch space is available on the worker nodes then this can be prevented by specifying
+s3 links in the input tsv file and <code>download</code> parameter in the input yaml.</p>
+<p>S3 TSV Links:
+<div class="highlight"><pre><span></span><code>
+</code></pre></div></p>
+<p>Input YAML
+<div class="highlight"><pre><span></span><code>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h3 id="output-overview">Output (Overview)</h3>
+<p>In addition to the pipeline module outputs defined in the module section (Dereplication, MagAttributes, etc), the following outputs are produced. </p>
+<ul>
+<li>
+<p>quality control (fastq) </p>
+</li>
+<li>
+<p>assembly (contigs)</p>
+</li>
+<li>
+<p>binning (genomes)</p>
+</li>
+<li>
+<p>read mapping (bam files)</p>
+</li>
+</ul>
+<h3 id="optional-run-per-sample-analysis-and-the-aggregation-of-per-sample-seperately">Optional: Run per sample analysis and the aggregation of per sample seperately</h3>
+<p>There are two ways to execute the toolkit. You can either run all steps in one execution or you run first the per sample analysis
+(e.g. assembly, binning, annotation, etc.) and afterwards you combine the results (e.g. dereplication, co-occurrence) in a second run.
+The second option allows you to process multiple samples via independent toolkit executions on different infrastructures and combine all
+results afterwards.</p>
+<p>You would first have to run the wFullPipeline mode without dereplication, read mapping and co-occurrence modules
+and afterwards run the the aggregation as described below:</p>
+<h4 id="input_1">Input</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Command</label><label for="__tabbed_2_2">Configuration File</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>-entry<span class="w"> </span>wAggregatePipeline<span class="w"> </span>-params-file<span class="w"> </span>example_params/fullPipelineAggregate.yml
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="elastic-metagenomic-browser-emgb">Elastic Metagenomic Browser (EMGB)</h3>
+<p>The output generated by the Metagenomics-Toolkit can be imported into (EMGB)[https://gitlab.ub.uni-bielefeld.de/cmg/emgb/emgb-server].
+EMGB allows you to easily explore your metagenomic samples in terms of MAGs, genes and their function.</p>
+<p>Your configuration must include at least the following analysis steps:
+* Assembly
+* Binning
+* Gene prediction and annotation with Prokka
+* Gene annotation with MMseqs
+* Gene taxonomy prediction with MMseqs</p>
+<p>We offer a script <code>bin/emgb.sh</code> that allows you to export a metagenomics toolkit output folder to emgb compatible json files.</p>
+<p>Example Call:</p>
+<div class="highlight"><pre><span></span><code>bash emgb.sh --output=output/test1 --runid=1 --binsdir=output/test1/1/binning/0.5.0/metabat --blastdb=bacmet20_predicted --name=test1
+</code></pre></div>
+<p>You can get a help page for the necessary arguments by running <code>emgb.sh --help</code>.</p>
+<h3 id="caveats">Caveats</h3>
+<ul>
+<li>The pipeline breaks if <code>--stageInMode</code> is specified with <code>copy</code>.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
+        <script src="js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.5.3
+Build Date UTC : 2024-03-19 16:18:54.650744+00:00
+-->
