@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Pipeline Specification - Meta-Omics-Toolkit</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Meta-Omics-Toolkit</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../pipeline_configuration/" class="nav-link">Global Pipeline Configuration Settings</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../modules/qualityControl/" class="dropdown-item">Quality Control</a>
+</li>
+                                    
+<li>
+    <a href="../modules/annotation/" class="dropdown-item">Annotation</a>
+</li>
+                                    
+<li>
+    <a href="../modules/assembly/" class="dropdown-item">Assembly</a>
+</li>
+                                    
+<li>
+    <a href="../modules/cooccurrence/" class="dropdown-item">Cooccurrence</a>
+</li>
+                                    
+<li>
+    <a href="../modules/dereplication/" class="dropdown-item">Dereplication</a>
+</li>
+                                    
+<li>
+    <a href="../modules/fragment_recruitment/" class="dropdown-item">Run Fragment Recruitment</a>
+</li>
+                                    
+<li>
+    <a href="../modules/magAttributes/" class="dropdown-item">MagAttributes</a>
+</li>
+                                    
+<li>
+    <a href="../modules/plasmids/" class="dropdown-item">Plasmids</a>
+</li>
+                                    
+<li>
+    <a href="../modules/metabolomics/" class="dropdown-item">Metabolomics</a>
+</li>
+                                    
+<li>
+    <a href="../modules/readMapping/" class="dropdown-item">Read Mapping</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../developer_guidelines/" class="dropdown-item">Guidelines</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Pipeline Specification</a>
+</li>
+                                    
+<li>
+    <a href="../module_specification/" class="dropdown-item">Module Specification</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../developer_guidelines/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../module_specification/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#pipeline-specification" class="nav-link">Pipeline Specification</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#output-and-best-practice" class="nav-link">Output and best practice</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="pipeline-specification">Pipeline Specification</h1>
+<h2 id="output-and-best-practice">Output and best practice</h2>
+<h3 id="motivation">Motivation</h3>
+<ul>
+<li>
+<p>The output section is a collection of <code>best practices</code> for storing results of the <code>meta-omics-toolkit</code> output.
+The definitions are motivated by the fact that the pipeline will be continuously updated and results of different pipeline
+versions and modes must be differentiated.</p>
+</li>
+<li>
+<p>The idea is to run the pipeline on results of previous runs.</p>
+</li>
+</ul>
+<h3 id="rules-for-dataset-output">Rules for dataset output</h3>
+<p>Outputs are produced by using the <code>publish dir</code> directive.</p>
+<p><div class="highlight"><pre><span></span><code>DATASET_ID/RUN_ID/MODULE/VERSION/TOOL/
+</code></pre></div>
+where
+   * <code>DATASET_ID</code> specifies the ID of a dataset such as the SRA run ID.
+   * <code>RUN_ID</code> specifies one possible run of the full or partial pipeline. The <code>RUN_ID</code> identifier can be any user provided identifier to keep track of multiple pipeline runs.
+   * <code>MODULE</code> specifies the name of the pipeline module (e.g. binning).
+   * <code>VERSION</code> specifies the module version number which follows semantic versioning (1.2.0).
+   * <code>TOOL</code> specifies the name of the tool that is executed as part of the module (e.g <code>megahit</code> of the assembly module).</p>
+<p>It is suggested that a RUN_ID output should never contain multiple versions of the same module. E.g.: 
+<code>DATASET_ID/1/Binning/1.2.0/metabat</code> and <code>DATASET_ID/1/Binning/1.3.0/metabat</code>.</p>
+<p>If a partial pipeline run (B) uses outputs of a previous run (A) (e.g. a binning tool uses the output of an assembler) and the previous run (A) alreads contains
+the output of an older version of run (B), then a new RUN_ID folder must be created.</p>
+<p>If a partial pipeline run (B) uses outputs of a previous run (A) (e.g. a binning tool uses the output of an assembler) and the previous run (A) <strong>does not</strong> contain
+the output of an older version of run (B), then the existing RUN_ID folder must be <strong>reused</strong>.</p>
+<h4 id="run-versioning">Run Versioning</h4>
+<p>Every dataset must contain a <code>TOOL</code> folder called <code>config</code>. The <code>config</code> folder contains descriptions of the parameters and the version used for the specific pipeline run.</p>
+<h3 id="examples">Examples</h3>
+<h4 id="example-1">Example 1:</h4>
+<p>We assume that the following folder already exists:</p>
+<div class="highlight"><pre><span></span><code>/SRA1/1/ASSEMBLY/1.2/MEGAHIT
+</code></pre></div>
+<p>If the MODULE output does not contain a BINNING output then the existing RUN folder must be reused:</p>
+<div class="highlight"><pre><span></span><code>/SRA1/1/ASSEMBLY/1.2/MEGAHIT
+/SRA1/1/BINNING/0.3/METABAT
+</code></pre></div>
+<h4 id="example-2">Example 2:</h4>
+<p>We assume that the following folders already exists:</p>
+<div class="highlight"><pre><span></span><code>/SRA1/1/ASSEMBLY/1.2/MEGAHIT
+/SRA1/1/BINNING/0.3/METABAT
+</code></pre></div>
+<p>If the MODULE output does contain a BINNING output then a new RUN folder must be created:</p>
+<div class="highlight"><pre><span></span><code>/SRA1/1/ASSEMBLY/1.2/MEGAHIT
+/SRA1/1/BINNING/0.3/METABAT
+/SRA1/2/BINNING/0.4/METABAT
+</code></pre></div>
+<h3 id="rules-for-aggregated-output">Rules for aggregated output</h3>
+<p>Aggregates outputs in the same way as dataset outputs are produced, by using the publish dir directive with the only difference that no
+sample identifier are used and the path starts with <code>AGGREGATED</code>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>AGGREGATED/RUN_ID/MODULE/VERSION/TOOL/
+</code></pre></div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+        <script src="../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
